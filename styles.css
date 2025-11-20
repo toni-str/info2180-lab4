@@ -8,27 +8,106 @@ body {
     padding-top: 50px;
 }
 
-.container {
-    background: white;
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+body {
+    font-family: Arial, sans-serif;
+    background-color: #eee;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-h1 {
-    color: #3f51b5;
+.header {
+    background-color: #4a86e8; /* Blue color */
+    color: white;
+    width: 100%;
+    padding: 20px 0;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.header h1 {
+    margin: 0;
+    font-size: 24px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.container {
+    background: white;
+    width: 80%;
+    max-width: 900px;
+    padding: 30px;
+    margin-top: 20px;
+    border-radius: 4px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+/* Search input area */
+.search-controls {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
     margin-bottom: 20px;
 }
 
+#superhero-search {
+    flex-grow: 1;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
 #search-btn {
-    background-color: #f44336;
+    background-color: #d9534f; /* Red color */
     color: white;
     border: none;
     padding: 10px 20px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
     font-size: 16px;
     cursor: pointer;
     border-radius: 4px;
+    font-weight: bold;
+}
+
+/* Result Area Styling */
+.result-heading {
+    color: #333;
+    font-size: 18px;
+    border-bottom: 2px solid #ccc;
+    padding-bottom: 5px;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+#result {
+    padding: 10px 0;
+}
+
+/* Specific Superhero Display */
+#result h3 {
+    font-size: 18px;
+    color: #444;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+#result h4 {
+    font-size: 16px;
+    color: #666;
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-weight: normal;
+}
+
+#result p {
+    line-height: 1.6;
+}
+
+/* List of all heroes */
+#result ul {
+    list-style-type: disc;
+    padding-left: 20px;
+    margin: 0;
 }

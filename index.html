@@ -7,9 +7,22 @@
     <link rel="stylesheet" href="styles.css"> 
 </head>
 <body>
+    <header class="header">
+        <h1>AVENGERS CHARACTER SEARCH</h1>
+    </header>
+    
     <div class="container">
-        <h1>Avengers Character Search</h1>
-        <button id="search-btn">Search</button>
+        <label for="superhero-search">Search by Full Name or Alias</label>
+        <div class="search-controls">
+            <input type="text" id="superhero-search" placeholder="e.g. Captain America or Steve Rogers">
+            <button id="search-btn">Search</button>
+        </div>
+
+        <h2 class="result-heading">RESULT</h2>
+        
+        <div id="result">
+            <p>Type a name and click Search, or click Search with a blank field to see all heroes.</p>
+        </div>
     </div>
 
     <script src="app.js"></script> 

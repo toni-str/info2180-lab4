@@ -63,10 +63,45 @@ $superheroes = [
   ], 
 ];
 
-?>
+// Sanitize the user input from the search text field
+$query = isset($_GET['query']) ? trim(filter_var($_GET['query'], FILTER_SANITIZE_SPECIAL_CHARS)) : '';
+$found_hero = null;
 
-<ul>
-<?php foreach ($superheroes as $superhero): ?>
-  <li><?= $superhero['alias']; ?></li>
-<?php endforeach; ?>
-</ul>
+if (!empty($query)) {
+    // Search for a specific superhero by full name or alias
+    $search_query = strtolower($query);
+
+    foreach ($superheroes as $hero) {
+        $name_lower = strtolower($hero['name']);
+        $alias_lower = strtolower($hero['alias']);
+        
+    // Use PHP's built-in array methods (or simple string search)
+        if ($name_lower == $search_query || $alias_lower == $search_query) {
+            $found_hero = $hero;
+            break;
+        }
+    }
+
+    //  Return a specific superhero's details or "not found" message 
+    if ($found_hero) {
+        // Output the superhero's details using the required HTML tags
+        $html_output = "
+            <hr>
+            <h3>" . strtoupper(htmlentities($found_hero['alias'])) . "</h3>
+            <h4>A.K.A " . strtoupper(htmlentities($found_hero['name'])) . "</h4>
+            <p>" . htmlentities($found_hero['biography']) . "</p>
+            <hr>
+        ";
+        echo $html_output;
+    } else {
+       // Display message if superhero cannot be found 
+        echo "<p style='color: red; font-weight: bold;'>SUPERHERO NOT FOUND</p>";
+    }
+} else {
+    // 4. Return the original list of superheroes (when search is blank) 
+    echo "<ul>";
+    foreach ($superheroes as $hero) {
+        echo "<li>" . htmlentities($hero['alias']) . "</li>";
+    }
+    echo "</ul>";
+}
